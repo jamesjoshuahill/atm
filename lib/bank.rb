@@ -6,6 +6,7 @@ class Bank
   end
 
   def account_from(name, pin)
-    @accounts[name][:user].verify_pin?(pin)
+    user_info = @accounts[name]
+    return user_info[:account] if user_info[:user].verify_pin?(pin)
   end
 end
