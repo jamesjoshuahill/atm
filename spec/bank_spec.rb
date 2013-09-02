@@ -6,6 +6,6 @@ describe Bank do
     user = User.new('Joe', 'Bloggs', '1234')
     bank.open_account(user)
 
-    expect(bank.accounts.length).to eq 1
+    expect(bank.accounts).to include user
   end
 end
