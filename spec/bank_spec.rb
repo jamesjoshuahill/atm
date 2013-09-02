@@ -1,11 +1,21 @@
 require 'bank'
 
 describe Bank do
-  it 'can open an account' do
-    bank = Bank.new
-    user = double User
-    bank.open_account(user)
+  # Our ATM does not need to open bank accounts
+  # 
+  # it 'can open an account' do
+  #   bank = Bank.new
+  #   user = double User
+  #   bank.open_account(user)
 
-    expect(bank.accounts).to include user
+  #   expect(bank.accounts).to include user
+  # end
+  it 'returns the account of Frank' do
+    user = double User
+    account = double :account
+    user.should_receive(:verify_pin?).with '1234'
+
+    bank = Bank.new({ 'Frank' => { user: user, account: account } } )
+    bank.account_from('Frank', '1234')
   end
 end
