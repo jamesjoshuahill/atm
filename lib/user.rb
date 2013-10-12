@@ -1,4 +1,5 @@
 class User
+
   attr_reader :first_name, :last_name
 
   def initialize(first_name, last_name, pin)
@@ -13,4 +14,5 @@ class User
   def verify_pin?(pin)
     pin == @pin
   end
+
 end

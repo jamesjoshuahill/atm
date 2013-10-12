@@ -1,6 +1,7 @@
 require 'user'
 
 describe User do
+
   let(:user) { User.new('Frank', 'Bloggs', '1234') }
 
   it 'has a first name' do
@@ -22,4 +23,5 @@ describe User do
   it 'cannot verify a pin' do
     expect(user.verify_pin?('')).to be_false
   end
+
 end
